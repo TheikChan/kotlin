@@ -247,6 +247,162 @@ fun main() {
         if (w.startsWith("l"))
             println(w)
     }
+
+    // collections
+    val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
+
+    when {
+        "orange" in fruits -> println("juicy")
+        "apple" in fruits -> println("apple is fine too")
+    }
+
+    fruits
+    .filter { it.startsWith("a")}
+    .sortedBy { it }
+    .map { it.uppercase() }
+    .forEach { println(it)}
+
+
+    // type check and automatic casts 
+
+    fun getStringLength(obj: Any): Int? {
+        if (obj is String) {
+            return obj.length 
+        }
+
+        return null 
+    }
+
+
+    // lists, sets, queues and deques operations
+
+    fruits
+    .add("apple")
+
+    fruits += "apple" // plus assign
+
+    val bottles = listOf("glass")
+
+    fruits.addAll(bottles)
+    fruits += bottls // plus assign
+
+    if (fruits.contains("apple")) {}
+
+    if ("apple" in fruits) { }
+
+    if (fruits.isEmpty()) {}
+
+    fruits.removeIf( it.equals("apple"))
+
+    // fruits.retainAll()
+
+    fruits.clear()
+
+    fruits.stream()
+    fruits.iterator()
+
+    // map operations 
+
+    var devices = mutableMapOf("laptop" to "apple")
+
+    devices.put("mobile" to "iphone")
+    devices["speaker"] = "beats"
+
+    devices += Pair("glass", "angis")
+
+    // devices.replace()
+    // devices.replaceAll()
+
+    println(devices.get(1))
+    println(devices[1])
+
+    if(devices.containsKey("latop")) {}
+    if(devices.containsValue("apple")) {}
+
+    if(devices.isEmpty())
+
+    // remove element by key 
+    devices.remove("laptop")
+    devices -= "speaker"
+
+    devices.clear()
+
+    // operations that exist only for lists 
+    // indexOf get index of element
+    // lastIndexOf get index of last element
+    // subList get sublist
+    // get get an element by index
+    // set set an element by index
+
+    // operations on any collection type 
+    // size() get size of collection
+    // flatMap, flatten() - get flat access to nested collection elements 
+    // map
+    // reduce apply provided operation to collection elements sequentially and return the accumulated result 
+    // eachCount count elements that match predicate
+    // filter filter by condition 
+    // none, any, all
+    // sorted - sort elements 
+    // take(2), limit - take the first n elements 
+    // takeWhile - take elements while condition is true 
+    // skip(1) - skip the first n elements 
+    // dropWhile() - skip elements while condition is true 
+    // associated - build map from collection elements and certain values associated with them 
+
+    // operation on lists
+    // sort - sort a list into natural order 
+    // sortDescending
+    // removeAt(1), remove(element) - remove element by index or element 
+    // fill() - fill all elements of list with certain value 
+    // distinct - unique lements from list 
+
+    // zip, unzip 
+    // aggregate - group by condition 
+    // takelast, takelastwhile, droplast, droplastwhile - take or drop elements by predicate
+    // slice, chunked , windowed - get sublist of elements 
+    // +, - add or remove elements 
+
+
+    val names = listOf("John", "Jane", "Jack")
+
+    names.any { it.startsWith("J") }
+    names.only { it.startsWith("J") }
+    names.none { it.startsWith("J") }
+    names.count { it.startsWith("J") }
+    names.first { it.startsWith("J") }
+    names.last { it.startsWith("J") }
+    names.find { it.startsWith("J") }
+    names.findLast { it.startsWith("J") }
+    names.firstOrNull { it.startsWith("J") }
+    names.lastOrNull { it.startsWith("J") }
+    names.indexOf("Jane")
+    names.indexOfLast { it.startsWith("J") }
+    names.indexOfFirst { it.startsWith("J") }
+    names.drop(1)
+    names.dropLast(1)
+    names.dropWhile { it.startsWith("J") }
+    names.dropLastWhile { it.startsWith("J") }
+
+    names.chunked(2)
+    names.chunked(2) { it.reversed() }
+    
+    names.windowed(2)
+    names.windowed(2, step = 2)
+    names.windowed(2, step = 2, partialWindows = true).flatten()
+
+    names.zip(listOf("John", "Jane", "Jack"))
+    names.unzip()
+
+    names.associate { it to it.length }
+
+
+    val numbers = listOf(1, 2, 3, 4, 5)
+    numbers.sum()
+    numbers.average()
+    numbers.max()
+    numbers.min() 
+
+    numbers.reduce { acc, i -> acc + i } // 15
 }
 
 
